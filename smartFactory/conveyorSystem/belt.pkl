@@ -1,16 +1,17 @@
-amends
+import
   "https://raw.githubusercontent.com/CollaborativeStateMachines/Cirrina/refs/heads/develop/src/main/resources/pkl/csm/csml.pkl"
+
 import "../serviceTypes.pkl" as ServiceTypes
 
-beltFsm = new StateMachine {
+beltFsm = new csml.StateMachine {
   transient {
     ["isUnloading"] = "false"
   }
 
   states {
-    ["loadingState"] = new Initial {
+    ["loadingState"] = new csml.Initial {
       exit {
-        new Emit { event { topic = "eScanned" }; target = "monitorFSM" }
+        new csml.Emit { event { topic = "eScanned" }; target = "monitorFSM" }
       }
 
       on {
@@ -27,13 +28,13 @@ beltFsm = new StateMachine {
     }
     ["transportingState"] {
       entry {
-        new Invoke {
+        new csml.Invoke {
           type = ServiceTypes.stMoveBelt
         }
       }
 
       exit {
-        new Invoke {
+        new csml.Invoke {
           type = ServiceTypes.stStopBelt
         }
       }
@@ -42,7 +43,7 @@ beltFsm = new StateMachine {
         ["eStartUnload"] {
           to = "unloadingState"
           yields {
-            new Eval { expression = "isUnloading = true" }
+            new csml.Eval { expression = "isUnloading = true" }
           }
         }
         ["eJobDone"] {
@@ -53,7 +54,7 @@ beltFsm = new StateMachine {
 
     ["errorState"] {
       entry {
-        new Emit {
+        new csml.Emit {
           event {
             topic = "eProcessMessage"
             data { ["msg"] = "Belt error: Invalid object detected" }
@@ -69,17 +70,17 @@ beltFsm = new StateMachine {
       }
     }
 
-    ["jobDoneState"] = new Terminal {}
+    ["jobDoneState"] = new csml.Terminal {}
 
     ["unloadingState"] {
       entry {
-        new Emit { event { topic = "eArmPickup" }; target = "armFSM" }
+        new csml.Emit { event { topic = "eArmPickup" }; target = "armFSM" }
       }
 
       after {
-        ["armPickupTimeout"] = new Timeout {
+        ["armPickupTimeout"] = new csml.Timeout {
           delay = "10000"
-          triggers = new Emit { event { topic = "eArmPickup" }; target = "armFSM" }
+          triggers = new csml.Emit { event { topic = "eArmPickup" }; target = "armFSM" }
         }
       }
 
@@ -88,13 +89,13 @@ beltFsm = new StateMachine {
           to = "jobDoneState"
 
           yields {
-            new Eval { expression = "isUnloading = false" }
+            new csml.Eval { expression = "isUnloading = false" }
           }
         }
 
         ["ePickedUp"] {
           to = "loadingState"
-          yields { new Eval { expression = "isUnloading = false" } }
+          yields { new csml.Eval { expression = "isUnloading = false" } }
         }
       }
     }
