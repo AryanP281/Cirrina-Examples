@@ -4,7 +4,7 @@ import "../serviceTypes.pkl" as ServiceTypes
 
 beltFsm = new StateMachine {
   transient {
-    ["$isUnloading"] = "false"
+    ["isUnloading"] = "false"
   }
 
   states {
@@ -42,7 +42,7 @@ beltFsm = new StateMachine {
         ["eStartUnload"] {
           to = "unloadingState"
           yields {
-            new Eval { expression = "$isUnloading = true" }
+            new Eval { expression = "isUnloading = true" }
           }
         }
         ["eJobDone"] {
@@ -88,13 +88,13 @@ beltFsm = new StateMachine {
           to = "jobDoneState"
 
           yields {
-            new Eval { expression = "$isUnloading = false" }
+            new Eval { expression = "isUnloading = false" }
           }
         }
 
         ["ePickedUp"] {
           to = "loadingState"
-          yields { new Eval { expression = "$isUnloading = false" } }
+          yields { new Eval { expression = "isUnloading = false" } }
         }
       }
     }
