@@ -1,0 +1,24 @@
+amends
+  "https://raw.githubusercontent.com/CollaborativeStateMachines/Cirrina/refs/heads/develop/src/main/resources/pkl/csm/csml.pkl"
+import "serviceTypes.pkl" as ServiceTypes
+
+bindings {
+  new HttpServiceImplementationBinding {
+    name = ServiceTypes.stMoveBelt
+    `local` = false
+    scheme = "http"
+    host = "localhost"
+    port = 6000
+    endPoint = "/movebelt"
+    method = "POST"
+  }
+  new HttpServiceImplementationBinding {
+    name = ServiceTypes.stStopBelt
+    `local` = false
+    scheme = "http"
+    host = "localhost"
+    port = 6000
+    endPoint = "/stopbelt"
+    method = "POST"
+  }
+}

@@ -1,0 +1,7 @@
+// This module contains all service types for the CSM SmartFactory
+
+//Service to move conveyor belt
+stMoveBelt = "moveBelt"
+
+//Service to stop conveyor belt
+stStopBelt = "stopBelt"

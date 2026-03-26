@@ -1,0 +1,102 @@
+amends
+  "https://raw.githubusercontent.com/CollaborativeStateMachines/Cirrina/refs/heads/develop/src/main/resources/pkl/csm/csml.pkl"
+import "../serviceTypes.pkl" as ServiceTypes
+
+beltFsm = new StateMachine {
+  transient {
+    ["$isUnloading"] = "false"
+  }
+
+  states {
+    ["loadingState"] = new Initial {
+      exit {
+        new Emit { event { topic = "eScanned" }; target = "monitorFSM" }
+      }
+
+      on {
+        ["eObjectInvalid"] {
+          to = "errorState"
+        }
+        ["eObjectValid"] {
+          to = "transportingState"
+        }
+        ["eJobDone"] {
+          to = "jobDoneState"
+        }
+      }
+    }
+    ["transportingState"] {
+      entry {
+        new Invoke {
+          type = ServiceTypes.stMoveBelt
+        }
+      }
+
+      exit {
+        new Invoke {
+          type = ServiceTypes.stStopBelt
+        }
+      }
+
+      on {
+        ["eStartUnload"] {
+          to = "unloadingState"
+          yields {
+            new Eval { expression = "$isUnloading = true" }
+          }
+        }
+        ["eJobDone"] {
+          to = "jobDoneState"
+        }
+      }
+    }
+
+    ["errorState"] {
+      entry {
+        new Emit {
+          event {
+            topic = "eProcessMessage"
+            data { ["msg"] = "Belt error: Invalid object detected" }
+          }
+          target = "messageProcessorFSM"
+        }
+      }
+
+      on {
+        ["eObjectValid"] {
+          to = "transportingState"
+        }
+      }
+    }
+
+    ["jobDoneState"] = new Terminal {}
+
+    ["unloadingState"] {
+      entry {
+        new Emit { event { topic = "eArmPickup" }; target = "armFSM" }
+      }
+
+      after {
+        ["armPickupTimeout"] = new Timeout {
+          delay = "10000"
+          triggers = new Emit { event { topic = "eArmPickup" }; target = "armFSM" }
+        }
+      }
+
+      on {
+        ["eJobDone"] {
+          to = "jobDoneState"
+
+          yields {
+            new Eval { expression = "$isUnloading = false" }
+          }
+        }
+
+        ["ePickedUp"] {
+          to = "loadingState"
+          yields { new Eval { expression = "$isUnloading = false" } }
+        }
+      }
+    }
+  }
+}
