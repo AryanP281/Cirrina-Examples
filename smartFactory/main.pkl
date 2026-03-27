@@ -1,6 +1,17 @@
 amends
   "https://raw.githubusercontent.com/CollaborativeStateMachines/Cirrina/refs/heads/develop/src/main/resources/pkl/csm/csml.pkl"
+import "conveyorSystem/belt.pkl"
+import "conveyorSystem/camera.pkl"
+import "jobController.pkl"
 import "serviceTypes.pkl" as ServiceTypes
+
+collaborativeStateMachine {
+  stateMachines {
+    ["jobControllerFSM"] = jobController.jobControllerFSM
+    ["beltFSM"] = belt.beltFsm
+    ["cameraFSM"] = camera.cameraFsm
+  }
+}
 
 bindings {
   new HttpServiceImplementationBinding {
@@ -19,6 +30,24 @@ bindings {
     host = "localhost"
     port = 6000
     endPoint = "/stopbelt"
+    method = "POST"
+  }
+  new HttpServiceImplementationBinding {
+    name = ServiceTypes.stTakePhoto
+    `local` = false
+    scheme = "http"
+    host = "localhost"
+    port = 6000
+    endPoint = "/takephoto"
+    method = "POST"
+  }
+  new HttpServiceImplementationBinding {
+    name = ServiceTypes.stScanPhoto
+    `local` = false
+    scheme = "http"
+    host = "localhost"
+    port = 6000
+    endPoint = "/scanphoto"
     method = "POST"
   }
 }

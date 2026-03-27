@@ -5,3 +5,9 @@ stMoveBelt = "moveBelt"
 
 //Service to stop conveyor belt
 stStopBelt = "stopBelt"
+
+//Service to take photo (by conveyor camera)
+stTakePhoto = "takePhoto"
+
+//Service to scan photo (by conveyor camera)
+stScanPhoto = "scanPhoto"

@@ -1,0 +1,76 @@
+import
+  "https://raw.githubusercontent.com/CollaborativeStateMachines/Cirrina/refs/heads/develop/src/main/resources/pkl/csm/csml.pkl"
+
+import "../serviceTypes.pkl" as ServiceTypes
+
+cameraFsm = new csml.StateMachine {
+  transient {
+    ["isScanning"] = "true"
+  }
+
+  states {
+    ["idleState"] = new csml.Initial {
+      on {
+        ["eStartScan"] {
+          to = "scanningState"
+          yields {
+            new csml.Eval { expression = "isScanning = true" }
+          }
+        }
+      }
+    }
+
+    ["scanningState"] {
+      entry {
+        new csml.Invoke {
+          type = ServiceTypes.stTakePhoto
+        }
+        new csml.Invoke {
+          type = ServiceTypes.stScanPhoto
+          emits { new csml.Internal { topic = "photoScanned" } }
+        }
+      }
+
+      exit {
+        new csml.Eval { expression = "isScanning = false" }
+      }
+
+      on {
+        ["photoScanned"] {
+          yields {
+            new csml.Match {
+              cases {
+                new csml.Case {
+                  of = "$validObject = true"
+                  yields {
+                    new csml.Emit { event = new csml.Internal { topic = "eCheckValidObject" } }
+                  }
+                }
+                new csml.Case {
+                  of = "$validObject = false"
+                  yields {
+                    new csml.Emit { event = new csml.Internal { topic = "eCheckInvalidObject" } }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        ["eCheckValidObject"] {
+          to = "idleState"
+          yields {
+            new csml.Emit { event { topic = "eObjectValid" }; target = "beltFSM" }
+          }
+        }
+
+        ["eCheckInvalidObject"] {
+          to = "idleState"
+          yields {
+            new csml.Emit { event { topic = "eObjectInvalid" }; target = "beltFSM" }
+          }
+        }
+      }
+    }
+  }
+}

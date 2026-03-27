@@ -1,8 +1,6 @@
 import
   "https://raw.githubusercontent.com/CollaborativeStateMachines/Cirrina/refs/heads/develop/src/main/resources/pkl/csm/csml.pkl"
 
-import "../serviceTypes.pkl" as ServiceTypes
-
 local totalProducts = 10
 
 jobControllerFSM = new csml.StateMachine {
