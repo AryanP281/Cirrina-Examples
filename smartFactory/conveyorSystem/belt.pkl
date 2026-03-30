@@ -2,12 +2,9 @@ import
   "https://raw.githubusercontent.com/CollaborativeStateMachines/Cirrina/refs/heads/develop/src/main/resources/pkl/csm/csml.pkl"
 
 import "../serviceTypes.pkl" as ServiceTypes
+import "../variables.pkl" as Vars
 
 beltFsm = new csml.StateMachine {
-  transient {
-    ["isUnloading"] = "false"
-  }
-
   states {
     ["loadingState"] = new csml.Initial {
       exit {
@@ -43,7 +40,7 @@ beltFsm = new csml.StateMachine {
         ["eStartUnload"] {
           to = "unloadingState"
           yields {
-            new csml.Eval { expression = "isUnloading = true" }
+            new csml.Eval { expression = "\(Vars.vIsUnloading) = true" }
           }
         }
         ["eJobDone"] {
@@ -89,13 +86,13 @@ beltFsm = new csml.StateMachine {
           to = "jobDoneState"
 
           yields {
-            new csml.Eval { expression = "isUnloading = false" }
+            new csml.Eval { expression = "\(Vars.vIsUnloading) = false" }
           }
         }
 
         ["ePickedUp"] {
           to = "loadingState"
-          yields { new csml.Eval { expression = "isUnloading = false" } }
+          yields { new csml.Eval { expression = "\(Vars.vIsUnloading) = false" } }
         }
       }
     }

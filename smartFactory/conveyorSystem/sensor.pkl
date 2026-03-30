@@ -1,0 +1,75 @@
+import
+  "https://raw.githubusercontent.com/CollaborativeStateMachines/Cirrina/refs/heads/develop/src/main/resources/pkl/csm/csml.pkl"
+
+import "../serviceTypes.pkl" as ServiceTypes
+import "../variables.pkl" as Vars
+
+sensorFSM = new csml.StateMachine {
+  transient {
+    ["isBeamInterrupted"] = "false"
+  }
+
+  states {
+    ["idleState"] = new csml.Initial {
+      after {
+        ["beamDetectionTimeout"] = new csml.Timeout {
+          delay = "10000"
+          triggers = new csml.Emit { event = new csml.Internal { topic = "eBeamDetection" } }
+        }
+      }
+
+      on {
+        ["eBeamDetection"] {
+          to = "detectingState"
+          provided = "!\(Vars.vIsUnloading) && !\(Vars.vIsScanning)"
+        }
+      }
+    }
+
+    ["detectingState"] {
+      entry {
+        new csml.Invoke {
+          type = ServiceTypes.stDetectBeam
+          emits { new csml.Internal { topic = "beamDetectionPerformed" } }
+        }
+      }
+
+      on {
+        ["beamDetectionPerformed"] {
+          yields {
+            new csml.Eval { expression = "isBeamInterrupted = $interrupted" }
+            new csml.Emit { event = new csml.Internal { topic = "eCheckBeamDetection" } }
+          }
+        }
+
+        ["eCheckBeamDetection"] {
+          to = "detectedState"
+          provided = "isBeamInterrupted"
+          or = "idleState"
+        }
+      }
+    }
+
+    ["detectedState"] {
+      entry {
+        new csml.Match {
+          cases {
+            new csml.Case {
+              of = "$isStartSensor"
+              yields {
+                new csml.Emit { event { topic = "eStartScan" }; target = "cameraFSM" }
+              }
+            }
+            default = new csml.Emit { event { topic = "eStartUnload" }; target = "beltFSM" }
+          }
+        }
+      }
+
+      always {
+        new csml.Transition {
+          to = "idleState"
+        }
+      }
+    }
+  }
+}

@@ -2,19 +2,16 @@ import
   "https://raw.githubusercontent.com/CollaborativeStateMachines/Cirrina/refs/heads/develop/src/main/resources/pkl/csm/csml.pkl"
 
 import "../serviceTypes.pkl" as ServiceTypes
+import "../variables.pkl" as Vars
 
 cameraFsm = new csml.StateMachine {
-  transient {
-    ["isScanning"] = "true"
-  }
-
   states {
     ["idleState"] = new csml.Initial {
       on {
         ["eStartScan"] {
           to = "scanningState"
           yields {
-            new csml.Eval { expression = "isScanning = true" }
+            new csml.Eval { expression = "\(Vars.vIsScanning) = true" }
           }
         }
       }
@@ -32,7 +29,7 @@ cameraFsm = new csml.StateMachine {
       }
 
       exit {
-        new csml.Eval { expression = "isScanning = false" }
+        new csml.Eval { expression = "\(Vars.vIsScanning) = false" }
       }
 
       on {
@@ -41,13 +38,13 @@ cameraFsm = new csml.StateMachine {
             new csml.Match {
               cases {
                 new csml.Case {
-                  of = "$validObject = true"
+                  of = "$validObject"
                   yields {
                     new csml.Emit { event = new csml.Internal { topic = "eCheckValidObject" } }
                   }
                 }
                 new csml.Case {
-                  of = "$validObject = false"
+                  of = "!$validObject"
                   yields {
                     new csml.Emit { event = new csml.Internal { topic = "eCheckInvalidObject" } }
                   }

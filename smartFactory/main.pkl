@@ -2,14 +2,22 @@ amends
   "https://raw.githubusercontent.com/CollaborativeStateMachines/Cirrina/refs/heads/develop/src/main/resources/pkl/csm/csml.pkl"
 import "conveyorSystem/belt.pkl"
 import "conveyorSystem/camera.pkl"
+import "conveyorSystem/sensor.pkl"
 import "jobController.pkl"
 import "serviceTypes.pkl" as ServiceTypes
+import "variables.pkl" as Vars
 
 collaborativeStateMachine {
   stateMachines {
     ["jobControllerFSM"] = jobController.jobControllerFSM
     ["beltFSM"] = belt.beltFsm
     ["cameraFSM"] = camera.cameraFsm
+    ["sensorFSM"] = sensor.sensorFSM
+  }
+
+  persistent {
+    [Vars.vIsScanning] = "false"
+    [Vars.vIsUnloading] = "false"
   }
 }
 
@@ -48,6 +56,15 @@ bindings {
     host = "localhost"
     port = 6000
     endPoint = "/scanphoto"
+    method = "POST"
+  }
+  new HttpServiceImplementationBinding {
+    name = ServiceTypes.stDetectBeam
+    `local` = false
+    scheme = "http"
+    host = "localhost"
+    port = 6000
+    endPoint = "/detectbeam"
     method = "POST"
   }
 }

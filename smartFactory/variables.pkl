@@ -1,0 +1,7 @@
+// This module contains all variable definitions for the CSM SmartFactory
+
+//Variable indicating if conveyor belt camera is scanning
+vIsScanning = "isScanning"
+
+//Variable indicating if conveyor belt is unloading
+vIsUnloading = "isUnloading"
