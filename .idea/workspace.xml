@@ -8,8 +8,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartFactory/conveyorSystem/belt.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/conveyorSystem/belt.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartFactory/conveyorSystem/camera.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/conveyorSystem/camera.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartFactory/conveyorSystem/sensor.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/conveyorSystem/sensor.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartFactory/jobController.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/jobController.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartFactory/main.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/main.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartFactory/serviceTypes.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/serviceTypes.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartFactory/variables.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/variables.pkl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +97,7 @@
       <workItem from="1765801662897" duration="13992000" />
       <workItem from="1768476533716" duration="30000" />
       <workItem from="1774613551139" duration="7122000" />
-      <workItem from="1774855898550" duration="5494000" />
+      <workItem from="1774855898550" duration="9511000" />
     </task>
     <task id="LOCAL-00001" summary="feat: setting networking latency">
       <option name="closed" value="true" />

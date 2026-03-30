@@ -1,0 +1,19 @@
+import
+  "https://raw.githubusercontent.com/CollaborativeStateMachines/Cirrina/refs/heads/develop/src/main/resources/pkl/csm/csml.pkl"
+
+import "../serviceTypes.pkl" as ServiceTypes
+import "../variables.pkl" as Vars
+import "globalEvents.pkl" as GEvents
+
+armFSM = new csml.StateMachine {
+  states {
+    ["idleState"] = new csml.Initial {
+      on {
+        [GEvents.eJobDone] {
+          to = "jobDoneState"
+        }
+        [""]
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+// This module contains all non-internal event definitions for the CSM SmartFactory
+
+//Event for indicating job is done
+eJobDone = "eJobDone"
+
+//Event for indicating a scan is complete
+eScanned = "eScanned"
+
+//Event for processing message
+eProcessMessage = "eProcessMessage"
+
+//Event for initiating pickup by robotic arm
+eArmPickup = "eArmPickup"
+
+//Event for indicating an object is valid
+eObjectValid = "eObjectValid"
+
+//Event for indicating an object is inValid
+eObjectInvalid = "eObjectInvalid"
+
+//Event for indicating a photo has been scanned (by conveyor camera)
+ePhotoScanned = "photoScanned"
+
+//Event for indicating a scanned object is valid
+eCheckValidObject = "eCheckValidObject"
+
+//Event for indicating a scanned object is invalid
+eCheckInvalidObject = "eCheckInvalidObject"
+
+//Event for initiating beam detection
+eBeamDetection = "eBeamDetection"
+
+//Event for indicating that beam detection by sensor is complete
+eBeamDetectionPerformed = "beamDetectionPerformed"
+
+//Event for initating checking of beam detection results
+eCheckBeamDetection = "eCheckBeamDetection"
+
+//Event for initating scanning (by conveyor camera)
+eStartScan = "eStartScan"
+
+//Event for initating unloading (by conveyor belt)
+eStartUnload = "eStartUnload"
+
+//Event for initating check to see if the job is complete
+eCheckJobDone = "eCheckJobDone"

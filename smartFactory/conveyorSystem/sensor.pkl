@@ -1,6 +1,7 @@
 import
   "https://raw.githubusercontent.com/CollaborativeStateMachines/Cirrina/refs/heads/develop/src/main/resources/pkl/csm/csml.pkl"
 
+import "../Events.pkl" as Events
 import "../serviceTypes.pkl" as ServiceTypes
 import "../variables.pkl" as Vars
 
@@ -14,12 +15,12 @@ sensorFSM = new csml.StateMachine {
       after {
         ["beamDetectionTimeout"] = new csml.Timeout {
           delay = "10000"
-          triggers = new csml.Emit { event = new csml.Internal { topic = "eBeamDetection" } }
+          triggers = new csml.Emit { event = new csml.Internal { topic = Events.eBeamDetection } }
         }
       }
 
       on {
-        ["eBeamDetection"] {
+        [Events.eBeamDetection] {
           to = "detectingState"
           provided = "!\(Vars.vIsUnloading) && !\(Vars.vIsScanning)"
         }
@@ -30,19 +31,19 @@ sensorFSM = new csml.StateMachine {
       entry {
         new csml.Invoke {
           type = ServiceTypes.stDetectBeam
-          emits { new csml.Internal { topic = "beamDetectionPerformed" } }
+          emits { new csml.Internal { topic = Events.eBeamDetectionPerformed } }
         }
       }
 
       on {
-        ["beamDetectionPerformed"] {
+        [Events.eBeamDetectionPerformed] {
           yields {
             new csml.Eval { expression = "isBeamInterrupted = $interrupted" }
-            new csml.Emit { event = new csml.Internal { topic = "eCheckBeamDetection" } }
+            new csml.Emit { event = new csml.Internal { topic = Events.eCheckBeamDetection } }
           }
         }
 
-        ["eCheckBeamDetection"] {
+        [Events.eCheckBeamDetection] {
           to = "detectedState"
           provided = "isBeamInterrupted"
           or = "idleState"
@@ -57,10 +58,10 @@ sensorFSM = new csml.StateMachine {
             new csml.Case {
               of = "$isStartSensor"
               yields {
-                new csml.Emit { event { topic = "eStartScan" }; target = "cameraFSM" }
+                new csml.Emit { event { topic = Events.eStartScan }; target = "cameraFSM" }
               }
             }
-            default = new csml.Emit { event { topic = "eStartUnload" }; target = "beltFSM" }
+            default = new csml.Emit { event { topic = Events.eStartUnload }; target = "beltFSM" }
           }
         }
       }

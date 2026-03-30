@@ -1,5 +1,8 @@
 // This module contains all variable definitions for the CSM SmartFactory
 
+//Variable indicating if the job is done
+vIsJobDone = "isJobDone"
+
 //Variable indicating if conveyor belt camera is scanning
 vIsScanning = "isScanning"
 

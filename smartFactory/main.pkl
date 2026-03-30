@@ -1,5 +1,6 @@
 amends
   "https://raw.githubusercontent.com/CollaborativeStateMachines/Cirrina/refs/heads/develop/src/main/resources/pkl/csm/csml.pkl"
+import "arm.pkl"
 import "conveyorSystem/belt.pkl"
 import "conveyorSystem/camera.pkl"
 import "conveyorSystem/sensor.pkl"
@@ -13,11 +14,13 @@ collaborativeStateMachine {
     ["beltFSM"] = belt.beltFsm
     ["cameraFSM"] = camera.cameraFsm
     ["sensorFSM"] = sensor.sensorFSM
+    ["armFSM"] = arm.armFSM
   }
 
   persistent {
     [Vars.vIsScanning] = "false"
     [Vars.vIsUnloading] = "false"
+    [Vars.vIsJobDone] = "false"
   }
 }
 
