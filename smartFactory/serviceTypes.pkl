@@ -14,3 +14,12 @@ stScanPhoto = "scanPhoto"
 
 //Service to detect beam (by conveyor sensor)
 stDetectBeam = "detectBeam"
+
+//Service to pickup part (by robotic arm)
+stPickup = "pickUp"
+
+//Service to assemble part
+stAssemble = "assemble"
+
+//Service to return arm to start
+stReturnToStart = "returnToStart"
