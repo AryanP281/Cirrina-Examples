@@ -8,3 +8,6 @@ vIsScanning = "isScanning"
 
 //Variable indicating if conveyor belt is unloading
 vIsUnloading = "isUnloading"
+
+//Variable storing the log messages
+vLogs = "logProcessorLogs"

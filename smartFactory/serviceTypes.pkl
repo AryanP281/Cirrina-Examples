@@ -23,3 +23,9 @@ stAssemble = "assemble"
 
 //Service to return arm to start
 stReturnToStart = "returnToStart"
+
+//Service to process email message
+stProcessEmail = "processEmail"
+
+//Service to process sms message
+stProcessSms = "processSms"

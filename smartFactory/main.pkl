@@ -5,6 +5,7 @@ import "conveyorSystem/belt.pkl"
 import "conveyorSystem/camera.pkl"
 import "conveyorSystem/sensor.pkl"
 import "jobController.pkl"
+import "messageProcessor.pkl"
 import "serviceTypes.pkl" as ServiceTypes
 import "variables.pkl" as Vars
 
@@ -15,12 +16,14 @@ collaborativeStateMachine {
     ["cameraFSM"] = camera.cameraFsm
     ["sensorFSM"] = sensor.sensorFSM
     ["armFSM"] = arm.armFSM
+    ["messageProcessorFSM"] = messageProcessor.emailProcessorFSM
   }
 
   persistent {
     [Vars.vIsScanning] = "false"
     [Vars.vIsUnloading] = "false"
     [Vars.vIsJobDone] = "false"
+    [Vars.vLogs] = "[...]"
   }
 }
 
@@ -95,6 +98,24 @@ bindings {
     host = "localhost"
     port = 6000
     endPoint = "/returntostart"
+    method = "POST"
+  }
+  new HttpServiceImplementationBinding {
+    name = ServiceTypes.stProcessEmail
+    `local` = false
+    scheme = "http"
+    host = "localhost"
+    port = 6000
+    endPoint = "/process/email"
+    method = "POST"
+  }
+  new HttpServiceImplementationBinding {
+    name = ServiceTypes.stProcessSms
+    `local` = false
+    scheme = "http"
+    host = "localhost"
+    port = 6000
+    endPoint = "/process/sms"
     method = "POST"
   }
 }
