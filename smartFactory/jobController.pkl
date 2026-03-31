@@ -8,7 +8,6 @@ local totalProducts = 10
 
 jobControllerFSM = new csml.StateMachine {
   transient {
-    ["productsCompleted"] = "0"
     ["totalProducts"] = "\(totalProducts)"
   }
 
@@ -35,14 +34,14 @@ jobControllerFSM = new csml.StateMachine {
       on {
         [Events.eProductComplete] {
           yields {
-            new csml.Eval { expression = "productsCompleted = productsCompleted + 1" }
+            new csml.Eval { expression = "\(Vars.vProductsCompleted) += 1" }
             new csml.Emit { event = new csml.Internal { topic = Events.eCheckJobDone } }
           }
         }
 
         [Events.eCheckJobDone] {
           to = "jobDoneState"
-          provided = "productsCompleted >= totalProducts"
+          provided = "\(Vars.vProductsCompleted) >= totalProducts"
         }
       }
     }

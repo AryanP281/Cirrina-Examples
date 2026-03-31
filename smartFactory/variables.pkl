@@ -11,3 +11,6 @@ vIsUnloading = "isUnloading"
 
 //Variable storing the log messages
 vLogs = "logProcessorLogs"
+
+//Variable storing the number of completed products
+vProductsCompleted = "productsCompleted"

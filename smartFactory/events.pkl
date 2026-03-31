@@ -74,3 +74,6 @@ eAssemblyComplete = "eAssemblyComplete"
 
 //Event indicating that the assembly of a new product was completed
 eProductComplete = "eProductComplete"
+
+//Event initiating transfer of statistics to external service
+eSendStatistics = "eSendStatistics"

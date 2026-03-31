@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="40d06459-7419-4933-8c08-28941d81d53f" name="Changes" comment="feat: setting networking latency">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartFactory/events.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/events.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartFactory/jobController.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/jobController.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartFactory/main.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/main.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartFactory/messageProcessor.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/messageProcessor.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartFactory/serviceTypes.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/serviceTypes.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartFactory/variables.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/variables.pkl" afterDir="false" />
     </list>
@@ -106,7 +109,7 @@
       <workItem from="1768476533716" duration="30000" />
       <workItem from="1774613551139" duration="7122000" />
       <workItem from="1774855898550" duration="17659000" />
-      <workItem from="1774942365503" duration="2989000" />
+      <workItem from="1774942365503" duration="4139000" />
     </task>
     <task id="LOCAL-00001" summary="feat: setting networking latency">
       <option name="closed" value="true" />

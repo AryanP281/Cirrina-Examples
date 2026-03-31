@@ -29,3 +29,6 @@ stProcessEmail = "processEmail"
 
 //Service to process sms message
 stProcessSms = "processSms"
+
+//Service to process statistics
+stSendStatistics = "sendStatistics"
