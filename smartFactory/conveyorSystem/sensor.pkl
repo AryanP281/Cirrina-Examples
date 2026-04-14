@@ -58,10 +58,13 @@ sensorFSM = new csml.StateMachine {
             new csml.Case {
               of = "$isStartSensor"
               yields {
-                new csml.Emit { event { topic = Events.eStartScan }; target = "cameraFSM" }
+                new csml.Emit { event { topic = Events.eStartScan }; target = "'conveyorCamera'" }
               }
             }
-            default = new csml.Emit { event { topic = Events.eStartUnload }; target = "beltFSM" }
+            default = new csml.Emit {
+              event { topic = Events.eStartUnload }
+              target = "'conveyorBelt'"
+            }
           }
         }
       }

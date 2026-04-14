@@ -77,3 +77,6 @@ eProductComplete = "eProductComplete"
 
 //Event initiating transfer of statistics to external service
 eSendStatistics = "eSendStatistics"
+
+//Event indicating that a message has been processed
+eMessageProcessed = "eMessageProcessed"

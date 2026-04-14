@@ -31,13 +31,13 @@ collaborativeStateMachine {
 }
 
 instances {
+  ["messageProcessor"] { stateMachineName = "messageProcessorFSM" }
   ["jobController"] { stateMachineName = "jobControllerFSM" }
   ["conveyorBelt"] { stateMachineName = "beltFSM" }
   ["conveyorCamera"] { stateMachineName = "cameraFSM" }
   ["conveyorStartSensor"] { stateMachineName = "sensorFSM"; data { ["isStartSensor"] = "true" } }
   ["conveyorEndSensor"] { stateMachineName = "sensorFSM"; data { ["isStartSensor"] = "false" } }
-  ["roboticArm"] { stateMachineName = "armFSM" }
-  ["messageProcessor"] { stateMachineName = "messageProcessorFSM" }
+  ["arm"] { stateMachineName = "armFSM" }
   ["monitor"] { stateMachineName = "monitorFSM" }
 }
 

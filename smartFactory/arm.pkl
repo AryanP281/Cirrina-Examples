@@ -10,7 +10,7 @@ local ppProduct = 2
 armFSM = new csml.StateMachine {
   transient {
     ["pickupSuccess"] = "true"
-    ["errorMsg"] = ""
+    ["errorMsg"] = "''"
     ["partsAssembled"] = "0"
     ["partsPerProduct"] = "\(ppProduct)"
   }
@@ -76,7 +76,7 @@ armFSM = new csml.StateMachine {
         new csml.Emit {
           event {
             topic = Events.eProcessMessage
-            data { ["msg"] = "'Fatal robotic arm failure: ' errorMsg" }
+            data { ["msg"] = "'Fatal robotic arm failure: ' + errorMsg" }
           }
           target = "messageProcessorFSM"
         }
@@ -128,7 +128,7 @@ armFSM = new csml.StateMachine {
                   }
                 }
                 new csml.Case {
-                  of = "!$success"
+                  of = "!($success)"
                   yields {
                     new csml.Emit {
                       event = new csml.Internal { topic = Events.eAssemblyUnsuccessful }
@@ -144,14 +144,14 @@ armFSM = new csml.StateMachine {
           to = "returnState"
           yields {
             new csml.Eval { expression = "partsAssembled = partsAssembled + 1" }
-            new csml.Emit { event { topic = Events.eAssemblyComplete }; target = "monitorFSM" }
+            new csml.Emit { event { topic = Events.eAssemblyComplete }; target = "'monitor'" }
           }
         }
 
         [Events.eAssemblyUnsuccessful] {
           to = "errorState"
           yields {
-            new csml.Eval { expression = "Assemble failed..." }
+            new csml.Eval { expression = "'Assemble failed...'" }
           }
         }
       }
@@ -176,7 +176,7 @@ armFSM = new csml.StateMachine {
                     new csml.Eval { expression = "partsAssembled = 0" }
                     new csml.Emit {
                       event { topic = Events.eProductComplete }
-                      target = "jobControllerFSM"
+                      target = "'jobController'"
                     }
                   }
                 }

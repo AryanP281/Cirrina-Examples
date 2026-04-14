@@ -6,6 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="40d06459-7419-4933-8c08-28941d81d53f" name="Changes" comment="feat: setting networking latency">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartFactory/arm.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/arm.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartFactory/conveyorSystem/belt.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/conveyorSystem/belt.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartFactory/conveyorSystem/camera.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/conveyorSystem/camera.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartFactory/conveyorSystem/sensor.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/conveyorSystem/sensor.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartFactory/events.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/events.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartFactory/jobController.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/jobController.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartFactory/main.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/main.pkl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +52,7 @@
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/user/Documents/Cirrina&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/user/Documents/Cirrina-Examples&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -62,17 +68,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Cirrina-Examples" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Cirrina-Examples" />
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Cirrina-Examples" />
       <method v="2">
@@ -104,7 +99,13 @@
       <workItem from="1768476533716" duration="30000" />
       <workItem from="1774613551139" duration="7122000" />
       <workItem from="1774855898550" duration="17659000" />
-      <workItem from="1774942365503" duration="8424000" />
+      <workItem from="1774942365503" duration="12934000" />
+      <workItem from="1774958300508" duration="4150000" />
+      <workItem from="1775028320291" duration="8870000" />
+      <workItem from="1775119229834" duration="25000" />
+      <workItem from="1775721820010" duration="2402000" />
+      <workItem from="1775737165575" duration="2745000" />
+      <workItem from="1776155893852" duration="5559000" />
     </task>
     <task id="LOCAL-00001" summary="feat: setting networking latency">
       <option name="closed" value="true" />

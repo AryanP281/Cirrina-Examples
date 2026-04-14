@@ -17,9 +17,12 @@ jobControllerFSM = new csml.StateMachine {
         new csml.Emit {
           event {
             topic = Events.eProcessMessage
-            data { ["msg"] = "Job started..." }
+            data { ["msg"] = "'Job started...'" }
           }
-          target = "messageProcessorFSM"
+          target = "'messageProcessor'"
+        }
+        new csml.Log {
+          message = "'Test'"
         }
       }
 
@@ -50,8 +53,8 @@ jobControllerFSM = new csml.StateMachine {
       entry {
         new csml.Eval { expression = "\(Vars.vIsJobDone) = true" }
         new csml.Emit {
-          event { topic = Events.eProcessMessage; data { ["msg"] = "Job done..." } }
-          target = "messageProcessorFSM"
+          event { topic = Events.eProcessMessage; data { ["msg"] = "'Job done...'" } }
+          target = "'messageProcessor'"
         }
         new csml.Emit { event { topic = Events.eJobDone } }
       }
