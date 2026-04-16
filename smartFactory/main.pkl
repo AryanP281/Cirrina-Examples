@@ -14,8 +14,6 @@ collaborativeStateMachine {
   stateMachines {
     ["jobControllerFSM"] = jobController.jobControllerFSM
     ["beltFSM"] = belt.beltFsm
-    ["cameraFSM"] = camera.cameraFsm
-    ["sensorFSM"] = sensor.sensorFSM
     ["armFSM"] = arm.armFSM
     ["messageProcessorFSM"] = messageProcessor.emailProcessorFSM
     ["monitorFSM"] = monitor.monitorFSM
@@ -34,9 +32,6 @@ instances {
   ["messageProcessor"] { stateMachineName = "messageProcessorFSM" }
   ["jobController"] { stateMachineName = "jobControllerFSM" }
   ["conveyorBelt"] { stateMachineName = "beltFSM" }
-  ["conveyorCamera"] { stateMachineName = "cameraFSM" }
-  ["conveyorStartSensor"] { stateMachineName = "sensorFSM"; data { ["isStartSensor"] = "true" } }
-  ["conveyorEndSensor"] { stateMachineName = "sensorFSM"; data { ["isStartSensor"] = "false" } }
   ["arm"] { stateMachineName = "armFSM" }
   ["monitor"] { stateMachineName = "monitorFSM" }
 }

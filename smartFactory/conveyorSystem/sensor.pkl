@@ -14,7 +14,7 @@ sensorFSM = new csml.StateMachine {
     ["idleState"] = new csml.Initial {
       after {
         ["beamDetectionTimeout"] = new csml.Timeout {
-          delay = "10000"
+          delay = "1000"
           triggers = new csml.Emit { event = new csml.Internal { topic = Events.eBeamDetection } }
         }
       }
@@ -31,7 +31,11 @@ sensorFSM = new csml.StateMachine {
       entry {
         new csml.Invoke {
           type = ServiceTypes.stDetectBeam
-          emits { new csml.Internal { topic = Events.eBeamDetectionPerformed } }
+          emits {
+            new csml.ConditionalEventDescription {
+              event = new csml.Internal { topic = Events.eBeamDetectionPerformed }
+            }
+          }
         }
       }
 
@@ -50,22 +54,32 @@ sensorFSM = new csml.StateMachine {
         }
       }
     }
+  }
+}
 
+startSensorFSM = (sensorFSM) {
+  states {
     ["detectedState"] {
       entry {
-        new csml.Match {
-          cases {
-            new csml.Case {
-              of = "$isStartSensor"
-              yields {
-                new csml.Emit { event { topic = Events.eStartScan }; target = "'conveyorCamera'" }
-              }
-            }
-            default = new csml.Emit {
-              event { topic = Events.eStartUnload }
-              target = "'conveyorBelt'"
-            }
-          }
+        new csml.Emit { event { topic = Events.eStartScan }; target = "'conveyorCamera'" }
+      }
+
+      always {
+        new csml.Transition {
+          to = "idleState"
+        }
+      }
+    }
+  }
+}
+
+endSensorFSM = (sensorFSM) {
+  states {
+    ["detectedState"] {
+      entry {
+        new csml.Emit {
+          event { topic = Events.eStartUnload }
+          target = "'conveyorBelt'"
         }
       }
 

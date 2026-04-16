@@ -21,9 +21,6 @@ jobControllerFSM = new csml.StateMachine {
           }
           target = "'messageProcessor'"
         }
-        new csml.Log {
-          message = "'Test'"
-        }
       }
 
       always {

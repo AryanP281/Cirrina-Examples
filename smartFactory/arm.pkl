@@ -49,7 +49,9 @@ armFSM = new csml.StateMachine {
         new csml.Invoke {
           type = ServiceTypes.stPickup
           emits {
-            new csml.Internal { topic = Events.eUpdatePickupSuccessStatus }
+            new csml.ConditionalEventDescription {
+              event = new csml.Internal { topic = Events.eUpdatePickupSuccessStatus }
+            }
           }
         }
       }
@@ -109,7 +111,9 @@ armFSM = new csml.StateMachine {
         new csml.Invoke {
           type = ServiceTypes.stAssemble
           emits {
-            new csml.Internal { topic = Events.eCheckAssembleSuccess }
+            new csml.ConditionalEventDescription {
+              event = new csml.Internal { topic = Events.eCheckAssembleSuccess }
+            }
           }
         }
       }

@@ -25,7 +25,11 @@ cameraFsm = new csml.StateMachine {
         }
         new csml.Invoke {
           type = ServiceTypes.stScanPhoto
-          emits { new csml.Internal { topic = Events.ePhotoScanned } }
+          emits {
+            new csml.ConditionalEventDescription {
+              event = new csml.Internal { topic = Events.ePhotoScanned }
+            }
+          }
         }
       }
 

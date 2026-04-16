@@ -4,8 +4,16 @@ import
 import "../events.pkl" as Events
 import "../serviceTypes.pkl" as ServiceTypes
 import "../variables.pkl" as Vars
+import "camera.pkl"
+import "sensor.pkl"
 
 beltFsm = new csml.StateMachine {
+  nested {
+    ["cameraFSM"] = camera.cameraFsm
+    ["startSensorFSM"] = sensor.startSensorFSM
+    ["endSensorFSM"] = sensor.endSensorFSM
+  }
+
   states {
     ["loadingState"] = new csml.Initial {
       exit {
