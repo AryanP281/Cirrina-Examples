@@ -54,6 +54,9 @@ eUpdatePickupSuccessStatus = "eUpdatePickupSuccessStatus"
 //Event for initating check for pickup success
 eCheckPickUpSuccess = "eCheckPickUpSuccess"
 
+//Event for indicating that the object has been picked up
+ePickedUp = "ePickedUp"
+
 //Event for initiating check for success of pickup retry
 eRetry = "eRetry"
 

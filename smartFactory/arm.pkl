@@ -50,25 +50,38 @@ armFSM = new csml.StateMachine {
           type = ServiceTypes.stPickup
           emits {
             new csml.ConditionalEventDescription {
-              event = new csml.Internal { topic = Events.eUpdatePickupSuccessStatus }
+              event = new csml.Internal { topic = Events.eUpdatePickupStatus }
             }
           }
         }
       }
 
       on {
-        [Events.eUpdatePickupSuccessStatus] {
+        [Events.eUpdatePickupStatus] {
           yields {
             new csml.Eval { expression = "pickupSuccess = $success" }
+            new csml.Match {
+              cases {
+                new csml.Case {
+                  of = "$success"
+                  yields {
+                    new csml.Emit {
+                      event { topic = Events.ePickedUp }
+                      target = "'conveyorBelt'"
+                    }
+                  }
+                }
+              }
+              default = new csml.Eval { expression = "errorMsg = 'Pickup failed...'" }
+            }
             new csml.Emit { event = new csml.Internal { topic = Events.eCheckPickUpSuccess } }
           }
         }
+
         [Events.eCheckPickUpSuccess] {
-          to = "errorState"
-          provided = "!pickupSuccess"
-          yields {
-            new csml.Eval { expression = "errorMsg = 'Pickup failed...'" }
-          }
+          to = "assembleState"
+          provided = "pickupSuccess"
+          or = "errorState"
         }
       }
     }
@@ -80,7 +93,7 @@ armFSM = new csml.StateMachine {
             topic = Events.eProcessMessage
             data { ["msg"] = "'Fatal robotic arm failure: ' + errorMsg" }
           }
-          target = "messageProcessorFSM"
+          target = "'messageProcessor'"
         }
       }
 
@@ -155,7 +168,7 @@ armFSM = new csml.StateMachine {
         [Events.eAssemblyUnsuccessful] {
           to = "errorState"
           yields {
-            new csml.Eval { expression = "'Assemble failed...'" }
+            new csml.Eval { expression = "errorMsg = 'Assemble failed...'" }
           }
         }
       }

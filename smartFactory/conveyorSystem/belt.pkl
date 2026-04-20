@@ -9,9 +9,9 @@ import "sensor.pkl"
 
 beltFsm = new csml.StateMachine {
   nested {
-    ["cameraFSM"] = camera.cameraFsm
-    ["startSensorFSM"] = sensor.startSensorFSM
-    ["endSensorFSM"] = sensor.endSensorFSM
+    ["conveyorCamera"] = camera.cameraFsm
+    ["startSensor"] = sensor.startSensorFSM
+    ["endSensor"] = sensor.endSensorFSM
   }
 
   states {
@@ -99,7 +99,7 @@ beltFsm = new csml.StateMachine {
           }
         }
 
-        ["ePickedUp"] {
+        [Events.ePickedUp] {
           to = "loadingState"
           yields { new csml.Eval { expression = "\(Vars.vIsUnloading) = false" } }
         }

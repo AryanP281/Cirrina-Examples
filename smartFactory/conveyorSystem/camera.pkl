@@ -64,14 +64,14 @@ cameraFsm = new csml.StateMachine {
         [Events.eCheckValidObject] {
           to = "idleState"
           yields {
-            new csml.Emit { event { topic = Events.eObjectValid }; target = "'conveyorBelt'" }
+            new csml.Emit { event = new csml.Internal { topic = Events.eObjectValid } }
           }
         }
 
         [Events.eCheckInvalidObject] {
           to = "idleState"
           yields {
-            new csml.Emit { event { topic = Events.eObjectInvalid }; target = "'conveyorBelt'" }
+            new csml.Emit { event = new csml.Internal { topic = Events.eObjectInvalid } }
           }
         }
       }

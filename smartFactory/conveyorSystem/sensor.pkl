@@ -26,11 +26,15 @@ sensorFSM = new csml.StateMachine {
         }
       }
     }
+  }
+}
 
+startSensorFSM = (sensorFSM) {
+  states {
     ["detectingState"] {
       entry {
         new csml.Invoke {
-          type = ServiceTypes.stDetectBeam
+          type = ServiceTypes.stDetectBeamStart
           emits {
             new csml.ConditionalEventDescription {
               event = new csml.Internal { topic = Events.eBeamDetectionPerformed }
@@ -54,14 +58,10 @@ sensorFSM = new csml.StateMachine {
         }
       }
     }
-  }
-}
 
-startSensorFSM = (sensorFSM) {
-  states {
     ["detectedState"] {
       entry {
-        new csml.Emit { event { topic = Events.eStartScan }; target = "'conveyorCamera'" }
+        new csml.Emit { event = new csml.Internal { topic = Events.eStartScan } }
       }
 
       always {
@@ -75,11 +75,38 @@ startSensorFSM = (sensorFSM) {
 
 endSensorFSM = (sensorFSM) {
   states {
+    ["detectingState"] {
+      entry {
+        new csml.Invoke {
+          type = ServiceTypes.stDetectBeamEnd
+          emits {
+            new csml.ConditionalEventDescription {
+              event = new csml.Internal { topic = Events.eBeamDetectionPerformed }
+            }
+          }
+        }
+      }
+
+      on {
+        [Events.eBeamDetectionPerformed] {
+          yields {
+            new csml.Eval { expression = "isBeamInterrupted = $interrupted" }
+            new csml.Emit { event = new csml.Internal { topic = Events.eCheckBeamDetection } }
+          }
+        }
+
+        [Events.eCheckBeamDetection] {
+          to = "detectedState"
+          provided = "isBeamInterrupted"
+          or = "idleState"
+        }
+      }
+    }
+
     ["detectedState"] {
       entry {
         new csml.Emit {
-          event { topic = Events.eStartUnload }
-          target = "'conveyorBelt'"
+          event = new csml.Internal { topic = Events.eStartUnload }
         }
       }
 

@@ -74,12 +74,21 @@ bindings {
     method = "POST"
   }
   new HttpServiceImplementationBinding {
-    name = ServiceTypes.stDetectBeam
+    name = ServiceTypes.stDetectBeamStart
     `local` = false
     scheme = "http"
     host = "localhost"
     port = 6000
-    endPoint = "/detectbeam"
+    endPoint = "/detectbeam/start"
+    method = "POST"
+  }
+  new HttpServiceImplementationBinding {
+    name = ServiceTypes.stDetectBeamEnd
+    `local` = false
+    scheme = "http"
+    host = "localhost"
+    port = 6000
+    endPoint = "/detectbeam/end"
     method = "POST"
   }
   new HttpServiceImplementationBinding {

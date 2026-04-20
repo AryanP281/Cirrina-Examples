@@ -10,8 +10,10 @@
       <change beforePath="$PROJECT_DIR$/smartFactory/conveyorSystem/belt.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/conveyorSystem/belt.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartFactory/conveyorSystem/camera.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/conveyorSystem/camera.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartFactory/conveyorSystem/sensor.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/conveyorSystem/sensor.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartFactory/events.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/events.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartFactory/jobController.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/jobController.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartFactory/main.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/main.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartFactory/serviceTypes.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/serviceTypes.pkl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +94,12 @@
       <workItem from="1775721820010" duration="2402000" />
       <workItem from="1775737165575" duration="2745000" />
       <workItem from="1776155893852" duration="5559000" />
-      <workItem from="1776324274197" duration="6083000" />
+      <workItem from="1776324274197" duration="11325000" />
+      <workItem from="1776416034191" duration="1738000" />
+      <workItem from="1776420514078" duration="6169000" />
+      <workItem from="1776432443839" duration="47000" />
+      <workItem from="1776669712993" duration="8493000" />
+      <workItem from="1776681280287" duration="5826000" />
     </task>
     <task id="LOCAL-00001" summary="feat: setting networking latency">
       <option name="closed" value="true" />
