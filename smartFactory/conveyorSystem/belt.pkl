@@ -73,6 +73,10 @@ beltFsm = new csml.StateMachine {
         [Events.eObjectValid] {
           to = "transportingState"
         }
+
+        [Events.eJobDone] {
+          to = "jobDoneState"
+        }
       }
     }
 

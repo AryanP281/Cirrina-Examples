@@ -116,6 +116,10 @@ armFSM = new csml.StateMachine {
             new csml.Eval { expression = "pickupSuccess = $success" }
           }
         }
+
+        [Events.eJobDone] {
+          to = "jobDoneState"
+        }
       }
     }
 

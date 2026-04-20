@@ -4,7 +4,7 @@ import
 import "events.pkl" as Events
 import "variables.pkl" as Vars
 
-local totalProducts = 5
+local totalProducts = 1
 
 jobControllerFSM = new csml.StateMachine {
   transient {
