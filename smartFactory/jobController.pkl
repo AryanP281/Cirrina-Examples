@@ -4,13 +4,7 @@ import
 import "events.pkl" as Events
 import "variables.pkl" as Vars
 
-local totalProducts = 1
-
 jobControllerFSM = new csml.StateMachine {
-  transient {
-    ["totalProducts"] = "\(totalProducts)"
-  }
-
   states {
     ["startingState"] = new csml.Initial {
       entry {
@@ -41,7 +35,7 @@ jobControllerFSM = new csml.StateMachine {
 
         [Events.eCheckJobDone] {
           to = "jobDoneState"
-          provided = "\(Vars.vProductsCompleted) >= totalProducts"
+          provided = "\(Vars.vProductsCompleted) >= \(Vars.vTotalProducts)"
         }
       }
     }

@@ -25,6 +25,7 @@ collaborativeStateMachine {
     [Vars.vIsJobDone] = "false"
     [Vars.vLogs] = "[...]"
     [Vars.vProductsCompleted] = "0"
+    [Vars.vTotalProducts] = "1"
   }
 }
 

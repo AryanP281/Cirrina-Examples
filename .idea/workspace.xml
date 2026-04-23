@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="40d06459-7419-4933-8c08-28941d81d53f" name="Changes" comment="feat: setting networking latency">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartFactory/arm.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/arm.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartFactory/conveyorSystem/belt.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/conveyorSystem/belt.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartFactory/jobController.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/jobController.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartFactory/main.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/main.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartFactory/variables.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/variables.pkl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +48,7 @@
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/user/Documents/SmartFactoryServices&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/user/Documents/Cirrina-Examples&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -95,7 +95,9 @@
       <workItem from="1776432443839" duration="47000" />
       <workItem from="1776669712993" duration="8493000" />
       <workItem from="1776681280287" duration="5826000" />
-      <workItem from="1776689104828" duration="2094000" />
+      <workItem from="1776689104828" duration="2483000" />
+      <workItem from="1776755693030" duration="3167000" />
+      <workItem from="1776930906905" duration="1076000" />
     </task>
     <task id="LOCAL-00001" summary="feat: setting networking latency">
       <option name="closed" value="true" />

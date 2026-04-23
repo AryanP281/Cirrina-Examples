@@ -14,3 +14,6 @@ vLogs = "logProcessorLogs"
 
 //Variable storing the number of completed products
 vProductsCompleted = "productsCompleted"
+
+//Variable storing the number of total products
+vTotalProducts = "totalProducts"
