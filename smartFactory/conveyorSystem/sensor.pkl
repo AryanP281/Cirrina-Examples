@@ -22,7 +22,7 @@ sensorFSM = new csml.StateMachine {
       on {
         [Events.eBeamDetection] {
           to = "detectingState"
-          provided = "!\(Vars.vIsUnloading) && !\(Vars.vIsScanning)"
+          provided = "!isUnloading && !isScanning"
         }
       }
     }

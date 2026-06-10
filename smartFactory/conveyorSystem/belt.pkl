@@ -3,7 +3,6 @@ import
 
 import "../events.pkl" as Events
 import "../serviceTypes.pkl" as ServiceTypes
-import "../variables.pkl" as Vars
 import "camera.pkl"
 import "sensor.pkl"
 
@@ -12,6 +11,11 @@ beltFsm = new csml.StateMachine {
     ["conveyorCamera"] = camera.cameraFsm
     ["startSensor"] = sensor.startSensorFSM
     ["endSensor"] = sensor.endSensorFSM
+  }
+
+  transient {
+    ["isScanning"] = "false"
+    ["isUnloading"] = "false"
   }
 
   states {
@@ -49,7 +53,7 @@ beltFsm = new csml.StateMachine {
         [Events.eStartUnload] {
           to = "unloadingState"
           yields {
-            new csml.Eval { expression = "\(Vars.vIsUnloading) = true" }
+            new csml.Eval { expression = "isUnloading = true" }
           }
         }
         [Events.eJobDone] {
@@ -99,13 +103,13 @@ beltFsm = new csml.StateMachine {
           to = "jobDoneState"
 
           yields {
-            new csml.Eval { expression = "\(Vars.vIsUnloading) = false" }
+            new csml.Eval { expression = "isUnloading = false" }
           }
         }
 
         [Events.ePickedUp] {
           to = "loadingState"
-          yields { new csml.Eval { expression = "\(Vars.vIsUnloading) = false" } }
+          yields { new csml.Eval { expression = "isUnloading = false" } }
         }
       }
     }

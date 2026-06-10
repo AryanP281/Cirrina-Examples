@@ -12,7 +12,7 @@ cameraFsm = new csml.StateMachine {
         [Events.eStartScan] {
           to = "scanningState"
           yields {
-            new csml.Eval { expression = "\(Vars.vIsScanning) = true" }
+            new csml.Eval { expression = "isScanning = true" }
           }
         }
       }
@@ -34,7 +34,7 @@ cameraFsm = new csml.StateMachine {
       }
 
       exit {
-        new csml.Eval { expression = "\(Vars.vIsScanning) = false" }
+        new csml.Eval { expression = "isScanning = false" }
       }
 
       on {

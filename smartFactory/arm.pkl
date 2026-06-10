@@ -5,7 +5,7 @@ import "events.pkl" as Events
 import "serviceTypes.pkl" as ServiceTypes
 import "variables.pkl" as Vars
 
-local ppProduct = 2
+local ppProduct = 3
 
 armFSM = new csml.StateMachine {
   transient {
@@ -99,7 +99,7 @@ armFSM = new csml.StateMachine {
 
       after {
         ["pickupRetryTimeout"] {
-          delay = "10000"
+          delay = "2000"
           triggers = new csml.Emit { event = new csml.Internal { topic = Events.eRetry } }
         }
       }

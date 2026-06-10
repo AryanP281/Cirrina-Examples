@@ -20,12 +20,10 @@ collaborativeStateMachine {
   }
 
   persistent {
-    [Vars.vIsScanning] = "false"
-    [Vars.vIsUnloading] = "false"
     [Vars.vIsJobDone] = "false"
     [Vars.vLogs] = "[...]"
     [Vars.vProductsCompleted] = "0"
-    [Vars.vTotalProducts] = "1"
+    [Vars.vTotalProducts] = "5"
   }
 }
 
