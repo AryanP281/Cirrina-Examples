@@ -1,8 +1,8 @@
 import
   "https://raw.githubusercontent.com/CollaborativeStateMachines/Cirrina/refs/heads/develop/src/main/resources/pkl/csm/csml.pkl"
 
-import "../events.pkl" as Events
-import "../serviceTypes.pkl" as ServiceTypes
+import "./events.pkl" as Events
+import "./serviceTypes.pkl" as ServiceTypes
 
 assemblyControllerFSM = new csml.StateMachine {
   states {
@@ -10,6 +10,10 @@ assemblyControllerFSM = new csml.StateMachine {
       on {
         [Events.eBeamInterruptedStart] {
           to = "scanningState"
+        }
+
+        [Events.eJobDone] {
+          to = "jobDoneState"
         }
       }
     }
@@ -121,5 +125,7 @@ assemblyControllerFSM = new csml.StateMachine {
         }
       }
     }
+
+    ["jobDoneState"] = new csml.Terminal {}
   }
 }
