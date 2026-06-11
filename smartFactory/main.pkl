@@ -2,11 +2,10 @@ amends
   "https://raw.githubusercontent.com/CollaborativeStateMachines/Cirrina/refs/heads/develop/src/main/resources/pkl/csm/csml.pkl"
 import "arm.pkl"
 import "conveyorSystem/belt.pkl"
-import "conveyorSystem/camera.pkl"
-import "conveyorSystem/sensor.pkl"
 import "jobController.pkl"
 import "messageProcessor.pkl"
 import "monitor.pkl"
+import "assemblyController.pkl"
 import "serviceTypes.pkl" as ServiceTypes
 import "variables.pkl" as Vars
 
@@ -17,6 +16,7 @@ collaborativeStateMachine {
     ["armFSM"] = arm.armFSM
     ["messageProcessorFSM"] = messageProcessor.emailProcessorFSM
     ["monitorFSM"] = monitor.monitorFSM
+    ["assemblyControllerFSM"] = assemblyController.assemblyControllerFSM
   }
 
   persistent {
@@ -33,6 +33,7 @@ instances {
   ["conveyorBelt"] { stateMachineName = "beltFSM" }
   ["arm"] { stateMachineName = "armFSM" }
   ["monitor"] { stateMachineName = "monitorFSM" }
+  ["assemblyController"] {stateMachineName = "assemblyControllerFSM"}
 }
 
 bindings {
