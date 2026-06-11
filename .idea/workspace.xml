@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="40d06459-7419-4933-8c08-28941d81d53f" name="Changes" comment="feat: setting networking latency">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartFactory/arm.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/arm.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartFactory/conveyorSystem/belt.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/conveyorSystem/belt.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartFactory/conveyorSystem/camera.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/conveyorSystem/camera.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartFactory/conveyorSystem/sensor.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/conveyorSystem/sensor.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartFactory/main.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/main.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartFactory/variables.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/variables.pkl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +104,7 @@
       <workItem from="1777881166379" duration="1143000" />
       <workItem from="1777893917225" duration="1669000" />
       <workItem from="1779352100743" duration="720000" />
-      <workItem from="1781089531556" duration="1298000" />
+      <workItem from="1781089531556" duration="3228000" />
     </task>
     <task id="LOCAL-00001" summary="feat: setting networking latency">
       <option name="closed" value="true" />

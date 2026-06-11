@@ -3,7 +3,6 @@ import
 
 import "../events.pkl" as Events
 import "../serviceTypes.pkl" as ServiceTypes
-import "../variables.pkl" as Vars
 
 sensorFSM = new csml.StateMachine {
   transient {
