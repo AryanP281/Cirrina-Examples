@@ -1,11 +1,11 @@
 amends
   "https://raw.githubusercontent.com/CollaborativeStateMachines/Cirrina/refs/heads/develop/src/main/resources/pkl/csm/csml.pkl"
 import "arm.pkl"
+import "assemblyController.pkl"
 import "conveyorSystem/belt.pkl"
 import "jobController.pkl"
 import "messageProcessor.pkl"
 import "monitor.pkl"
-import "assemblyController.pkl"
 import "serviceTypes.pkl" as ServiceTypes
 import "variables.pkl" as Vars
 
@@ -33,7 +33,7 @@ instances {
   ["conveyorBelt"] { stateMachineName = "beltFSM" }
   ["arm"] { stateMachineName = "armFSM" }
   ["monitor"] { stateMachineName = "monitorFSM" }
-  ["assemblyController"] {stateMachineName = "assemblyControllerFSM"}
+  ["assemblyController"] { stateMachineName = "assemblyControllerFSM" }
 }
 
 bindings {
