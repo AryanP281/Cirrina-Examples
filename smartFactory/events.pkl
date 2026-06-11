@@ -27,8 +27,11 @@ eCheckValidObject = "eCheckValidObject"
 //Event for indicating a scanned object is invalid
 eCheckInvalidObject = "eCheckInvalidObject"
 
-//Event for initiating beam detection
-eBeamDetection = "eBeamDetection"
+//Event for indicating that start sensor's beam has been interrupted
+eBeamInterruptedStart = "eBeamInterruptedStart"
+
+//Event for indicating that end sensor's beam has been interrupted
+eBeamInterruptedEnd = "eBeamInterruptedEnd"
 
 //Event for indicating that beam detection by sensor is complete
 eBeamDetectionPerformed = "beamDetectionPerformed"
@@ -83,3 +86,6 @@ eSendStatistics = "eSendStatistics"
 
 //Event indicating that a message has been processed
 eMessageProcessed = "eMessageProcessed"
+
+//Event indicating that a photo has been captured
+ePhotoCaptured = "ePhotoCaptured"
