@@ -5,7 +5,6 @@ import "../events.pkl" as Events
 import "../serviceTypes.pkl" as ServiceTypes
 
 beltFsm = new csml.StateMachine {
-
   states {
     ["loadingState"] = new csml.Initial {
       exit {
@@ -13,9 +12,6 @@ beltFsm = new csml.StateMachine {
       }
 
       on {
-        [Events.eObjectInvalid] {
-          to = "errorState"
-        }
         [Events.eObjectValid] {
           to = "transportingState"
         }
@@ -41,28 +37,6 @@ beltFsm = new csml.StateMachine {
         [Events.eStartUnload] {
           to = "unloadingState"
         }
-        [Events.eJobDone] {
-          to = "jobDoneState"
-        }
-      }
-    }
-
-    ["errorState"] {
-      entry {
-        new csml.Emit {
-          event {
-            topic = Events.eProcessMessage
-            data { ["msg"] = "'Belt error: Invalid object detected'" }
-          }
-          target = "'messageProcessor'"
-        }
-      }
-
-      on {
-        [Events.eObjectValid] {
-          to = "transportingState"
-        }
-
         [Events.eJobDone] {
           to = "jobDoneState"
         }
