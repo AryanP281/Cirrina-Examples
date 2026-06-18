@@ -89,3 +89,9 @@ eMessageProcessed = "eMessageProcessed"
 
 //Event indicating that a photo has been captured
 ePhotoCaptured = "ePhotoCaptured"
+
+//Event indicating that the statistics after job completion have been logged by the monitor
+eMonitorJobCompletionStatisticsLogged = "eMonitorJobCompletionStatisticsLogged"
+
+//Event indicating that the conveyor belt has been moved to the start position
+eBeltReturnedToStart = "eBeltReturnedToStart"

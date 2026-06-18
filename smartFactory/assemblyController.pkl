@@ -120,7 +120,7 @@ assemblyControllerFSM = new csml.StateMachine {
 
     ["assemblingState"] {
       on {
-        [Events.eAssemblyComplete] {
+        [Events.eBeltReturnedToStart] {
           to = "detectingStartState"
         }
       }

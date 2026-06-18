@@ -184,11 +184,14 @@ armFSM = new csml.StateMachine {
       entry {
         new csml.Invoke {
           type = ServiceTypes.stReturnToStart
+          emits {
+            new csml.ConditionalEvent { event { topic = Events.eBeltReturnedToStart } }
+          }
         }
       }
 
-      always {
-        new csml.Transition {
+      on {
+        [Events.eBeltReturnedToStart] {
           to = "idleState"
           yields {
             new csml.Match {
