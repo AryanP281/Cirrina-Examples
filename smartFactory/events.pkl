@@ -95,3 +95,6 @@ eMonitorJobCompletionStatisticsLogged = "eMonitorJobCompletionStatisticsLogged"
 
 //Event indicating that the conveyor belt has been moved to the start position
 eBeltReturnedToStart = "eBeltReturnedToStart"
+
+//Event indicating that the arm needs to be reset
+eResetArm = "eResetArm"
