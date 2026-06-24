@@ -117,7 +117,7 @@ assemblyControllerFSM = new csml.StateMachine {
     ["detectingEndState"] {
       on {
         [Events.eBeamInterruptedEnd] {
-          to = "detectingStartState"
+          to = "unloadingState"
           yields {
             new csml.Emit {
               event = new csml.Event { topic = Events.eStartUnload }
@@ -128,6 +128,14 @@ assemblyControllerFSM = new csml.StateMachine {
 
         [Events.eJobDone] {
           to = "jobDoneState"
+        }
+      }
+    }
+
+    ["unloadingState"] {
+      on {
+        [Events.ePickedUp] {
+          to = "detectingStartState"
         }
       }
     }
