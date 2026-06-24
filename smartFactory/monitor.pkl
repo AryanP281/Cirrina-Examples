@@ -39,31 +39,19 @@ monitorFSM = new csml.StateMachine {
           }
         }
         [Events.eJobDone] {
-          to = "jobDoneLogState"
-        }
-      }
-    }
-
-    ["jobDoneLogState"] {
-      entry {
-        new csml.Invoke {
-          type = ServiceTypes.stSendStatistics
-          input {
-            ["nScans"] = "nScans"
-            ["nAssemblies"] = "nAssemblies"
-            ["productsCompleted"] = "\(Vars.vProductsCompleted)"
-            ["jobDone"] = "\(Vars.vIsJobDone)"
-          }
-          emits {
-            new csml.ConditionalEvent {
-              event = new csml.Internal { topic = Events.eMonitorJobCompletionStatisticsLogged }
+          to = "jobDoneState"
+          yields {
+            new csml.Invoke {
+              type = ServiceTypes.stSendStatistics
+              input {
+                ["nScans"] = "nScans"
+                ["nAssemblies"] = "nAssemblies"
+                ["productsCompleted"] = "\(Vars.vProductsCompleted)"
+                ["jobDone"] = "\(Vars.vIsJobDone)"
+              }
             }
           }
         }
-      }
-
-      on {
-        [Events.eMonitorJobCompletionStatisticsLogged] { to = "jobDoneState" }
       }
     }
 
