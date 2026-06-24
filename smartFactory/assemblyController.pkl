@@ -83,6 +83,10 @@ assemblyControllerFSM = new csml.StateMachine {
             }
           }
         }
+
+        [Events.eJobDone] {
+          to = "jobDoneState"
+        }
       }
     }
 
@@ -102,6 +106,12 @@ assemblyControllerFSM = new csml.StateMachine {
           to = "detectingStartState"
         }
       }
+
+      on {
+        [Events.eJobDone] {
+          to = "jobDoneState"
+        }
+      }
     }
 
     ["detectingEndState"] {
@@ -114,6 +124,10 @@ assemblyControllerFSM = new csml.StateMachine {
               target = "'conveyorBelt'"
             }
           }
+        }
+
+        [Events.eJobDone] {
+          to = "jobDoneState"
         }
       }
     }

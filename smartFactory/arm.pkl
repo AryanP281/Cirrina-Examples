@@ -184,9 +184,6 @@ armFSM = new csml.StateMachine {
       entry {
         new csml.Invoke {
           type = ServiceTypes.stReturnToStart
-          emits {
-            new csml.ConditionalEvent { event = new csml.Internal { topic = Events.eResetArm } }
-          }
         }
       }
 
@@ -207,11 +204,6 @@ armFSM = new csml.StateMachine {
                   }
                 }
               }
-            }
-
-            new csml.Emit {
-              event { topic = Events.eBeltReturnedToStart }
-              target = "'assemblyController'"
             }
           }
         }
