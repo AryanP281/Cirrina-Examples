@@ -53,7 +53,7 @@ beltFsm = new csml.StateMachine {
       after {
         ["armPickupTimeout"] {
           delay = "1000"
-          triggers = new csml.Emit {event {topic = Events.eArmPickup}; target = "'arm'"}
+          triggers = new csml.Emit { event { topic = Events.eArmPickup }; target = "'arm'" }
         }
       }
 
