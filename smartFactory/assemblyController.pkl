@@ -107,21 +107,13 @@ assemblyControllerFSM = new csml.StateMachine {
     ["detectingEndState"] {
       on {
         [Events.eBeamInterruptedEnd] {
-          to = "assemblingState"
+          to = "detectingStartState"
           yields {
             new csml.Emit {
               event = new csml.Event { topic = Events.eStartUnload }
               target = "'conveyorBelt'"
             }
           }
-        }
-      }
-    }
-
-    ["assemblingState"] {
-      on {
-        [Events.eBeltReturnedToStart] {
-          to = "detectingStartState"
         }
       }
     }
