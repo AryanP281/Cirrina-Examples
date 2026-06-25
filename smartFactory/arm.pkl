@@ -166,6 +166,7 @@ armFSM = new csml.StateMachine {
             new csml.Eval { expression = "partsAssembled = partsAssembled + 1" }
             new csml.Emit {
               event { topic = Events.eAssemblyComplete }
+              target = "'monitor'"
             }
           }
         }
