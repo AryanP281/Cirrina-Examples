@@ -48,11 +48,6 @@ armFSM = new csml.StateMachine {
       entry {
         new csml.Invoke {
           type = ServiceTypes.stPickup
-          emits {
-            new csml.ConditionalEventDescription {
-              event = new csml.Internal { topic = Events.eUpdatePickupStatus }
-            }
-          }
         }
       }
 

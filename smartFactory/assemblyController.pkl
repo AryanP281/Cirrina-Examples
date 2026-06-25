@@ -143,6 +143,10 @@ assemblyControllerFSM = new csml.StateMachine {
         [Events.ePickedUp] {
           to = "detectingStartState"
         }
+
+        [Events.eJobDone] {
+          to = "jobDoneState"
+        }
       }
     }
 
