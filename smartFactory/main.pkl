@@ -34,6 +34,7 @@ instances {
   ["arm"] { stateMachineName = "armFSM" }
   ["monitor"] { stateMachineName = "monitorFSM" }
   ["assemblyController"] { stateMachineName = "assemblyControllerFSM" }
+  ["arm2"] { stateMachineName = "armFSM" }
 }
 
 bindings {

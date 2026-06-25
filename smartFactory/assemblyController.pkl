@@ -88,6 +88,10 @@ assemblyControllerFSM = new csml.StateMachine {
           to = "jobDoneState"
         }
       }
+
+      exit {
+        new csml.Emit { event { topic = Events.eScanned }; target = "'monitor'" }
+      }
     }
 
     ["errorState"] {
