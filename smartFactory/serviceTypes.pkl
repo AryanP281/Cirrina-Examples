@@ -29,3 +29,6 @@ stProcessSms = "processSms"
 
 //Service to process statistics
 stSendStatistics = "sendStatistics"
+
+//Service to discard invalid object
+stDiscardObject = "discardObject"

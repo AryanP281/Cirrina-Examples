@@ -127,4 +127,13 @@ bindings {
     endPoint = "/statistics"
     method = "POST"
   }
+  new HttpServiceImplementationBinding {
+    name = ServiceTypes.stDiscardObject
+    `local` = false
+    scheme = "http"
+    host = "localhost"
+    port = 6000
+    endPoint = "/discardobject"
+    method = "POST"
+  }
 }

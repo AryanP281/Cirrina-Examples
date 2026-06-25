@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40d06459-7419-4933-8c08-28941d81d53f" name="Changes" comment="feat: setting networking latency" />
+    <list default="true" id="40d06459-7419-4933-8c08-28941d81d53f" name="Changes" comment="feat: setting networking latency">
+      <change beforePath="$PROJECT_DIR$/smartFactory/main.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/main.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartFactory/serviceTypes.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/smartFactory/serviceTypes.pkl" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +46,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "git-widget-placeholder": "modif",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/user/Documents/Cirrina",
+    "last_opened_file_path": "/home/user/Documents/Cirrina-Examples",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -110,6 +113,7 @@
       <workItem from="1782198866478" duration="13240000" />
       <workItem from="1782213112341" duration="7281000" />
       <workItem from="1782285765510" duration="17707000" />
+      <workItem from="1782371209745" duration="5787000" />
     </task>
     <task id="LOCAL-00001" summary="feat: setting networking latency">
       <option name="closed" value="true" />
