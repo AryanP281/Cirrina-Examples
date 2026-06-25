@@ -98,3 +98,6 @@ eBeltReturnedToStart = "eBeltReturnedToStart"
 
 //Event indicating that the arm needs to be reset
 eResetArm = "eResetArm"
+
+//Event indicating that an invalid object has been discarded
+eObjectDiscarded = "eObjectDiscarded"

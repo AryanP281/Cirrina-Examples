@@ -103,17 +103,19 @@ assemblyControllerFSM = new csml.StateMachine {
           }
           target = "'messageProcessor'"
         }
-      }
 
-      always {
-        new csml.Transition {
-          to = "detectingStartState"
+        new csml.Invoke {
+          type = ServiceTypes.stDiscardObject
         }
       }
 
       on {
         [Events.eJobDone] {
           to = "jobDoneState"
+        }
+
+        [Events.eObjectDiscarded] {
+          to = "detectingStartState"
         }
       }
     }
