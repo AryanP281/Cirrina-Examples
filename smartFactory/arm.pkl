@@ -121,11 +121,6 @@ armFSM = new csml.StateMachine {
       entry {
         new csml.Invoke {
           type = ServiceTypes.stAssemble
-          emits {
-            new csml.ConditionalEventDescription {
-              event = new csml.Internal { topic = Events.eCheckAssembleSuccess }
-            }
-          }
         }
       }
 
